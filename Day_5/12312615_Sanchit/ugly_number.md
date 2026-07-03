@@ -1,0 +1,18 @@
+class Solution(object):
+    def isUgly(self, n):
+        if n <= 0:
+            return False
+
+        for factor in [2, 3, 5]:
+            while n % factor == 0:
+                n //= factor
+
+        return n == 1
+
+
+obj = Solution()
+
+print(obj.isUgly(30))
+print(obj.isUgly(14))
+print(obj.isUgly(8))
+print(obj.isUgly(25))

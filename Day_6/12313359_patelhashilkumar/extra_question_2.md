@@ -1,0 +1,22 @@
+# Encode and Decode Strings
+
+Link - https://neetcode.io/problems/string-encode-and-decode/question?list=neetcode150
+
+```python
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        op = ""
+        for s in strs:
+            op+= str(len(s))+"#"+s
+        return op
+    def decode(self, s: str) -> List[str]:
+        op = []
+        while s:
+            index = s.find("#")
+            num = int(s[:index])
+            num_string = s[index+1:index+num+1]
+            op.append(num_string)
+            s =s[num+index+1:]
+        return op
+```
